@@ -45,6 +45,12 @@ syn keyword jsonNull      null
 " Syntax: Braces {{{2
 syn match   jsonBraces	   "[{}\[\]]"
 
+" javascript-style comments
+syn keyword jsonCommentTodo      TODO FIXME XXX TBD contained
+syn match   jsonLineComment      "\/\/.*" contains=@Spell,javaScriptCommentTodo
+syn match   jsonCommentSkip      "^[ \t]*\*\($\|[ \t]\+\)"
+syn region  jsonComment	       start="/\*"  end="\*/" contains=@Spell,javaScriptCommentTodo
+
 " Define the default highlighting. {{{1
 " For version 5.7 and earlier: only when not done already
 " For version 5.8 and later: only when an item doesn't have highlighting yet
@@ -61,6 +67,10 @@ if version >= 508 || !exists("did_json_syn_inits")
   HiLink jsonBraces		Operator
   HiLink jsonNull		Function
   HiLink jsonBoolean		Boolean
+
+  HiLink jsonComment		Comment
+  HiLink jsonLineComment	Comment
+  HiLink jsonCommentTodo	Todo  
 
   HiLink jsonNumError           Error
   HiLink jsonStringSQ           Error
