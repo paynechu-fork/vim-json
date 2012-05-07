@@ -47,9 +47,9 @@ syn match   jsonBraces	   "[{}\[\]]"
 
 " javascript-style comments
 syn keyword jsonCommentTodo      TODO FIXME XXX TBD contained
-syn match   jsonLineComment      "\/\/.*" contains=@Spell,javaScriptCommentTodo
+syn match   jsonLineComment      "\/\/.*" contains=@Spell,jsonCommentTodo
 syn match   jsonCommentSkip      "^[ \t]*\*\($\|[ \t]\+\)"
-syn region  jsonComment	       start="/\*"  end="\*/" contains=@Spell,javaScriptCommentTodo
+syn region  jsonComment	       start="/\*"  end="\*/" contains=@Spell,jsonCommentTodo
 
 " Define the default highlighting. {{{1
 " For version 5.7 and earlier: only when not done already
